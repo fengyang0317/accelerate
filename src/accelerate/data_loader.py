@@ -543,6 +543,14 @@ if is_tpu_available(check_device=False):
         def batch_sampler(self):
             return self._loader.batch_sampler
 
+        @property
+        def dataset(self):
+            return self._loader.dataset
+
+        @property
+        def sampler(self):
+            return self._loader.sampler
+
 
 class DataLoaderDispatcher(DataLoader, DataLoaderStateMixin):
     """
