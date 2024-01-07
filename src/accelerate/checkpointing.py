@@ -119,11 +119,11 @@ def save_accelerator_state(
         # Only save if we have our custom sampler
         from .data_loader import IterableDatasetShard, SeedableRandomSampler
 
-        if isinstance(dataloader.dataset, IterableDatasetShard):
-            sampler = dataloader.sampler.sampler
-
-            if isinstance(sampler, SeedableRandomSampler):
-                save(sampler, output_sampler_file, save_on_each_node=save_on_each_node, safe_serialization=False)
+        # if isinstance(dataloader.dataset, IterableDatasetShard):
+        #     sampler = dataloader.sampler.sampler
+        #
+        #     if isinstance(sampler, SeedableRandomSampler):
+        #         save(sampler, output_sampler_file, save_on_each_node=save_on_each_node, safe_serialization=False)
         logger.info(f"Sampler state for dataloader {i} saved in {output_sampler_file}")
 
     # GradScaler state
